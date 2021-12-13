@@ -1,1 +1,92 @@
-<p>editar-persona works!</p>
+<form [formGroup]="fgValidador" > <!-- Change The Form Method From Here-->
+    <div class="card-panel z-depth-5">
+
+
+        <input type="hidden" formControlName="id"/>
+
+        <!-- Form Logo Section  -->
+
+        <div class="row margin">
+            <div class="col s12 m12 l12 center">
+                <img src="https://i.imgur.com/ypAbAYt.png"
+                 alt="" class="responsive-img circle" style="width:100px;">
+                <p>Edicion de Personas</p>
+            </div>
+        </div>
+
+        <!-- Form Username Input Section -->
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">create</i>
+                <input formControlName= 'nombres' type="text" name="nombres" id="nombres">
+                <label class="active" for="nombres">Ingrese los nombres</label>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">create</i>
+                <input formControlName= 'apellidos' type="text" name="apellidos" id="apellidos">
+                <label class="active" for="apellidos">Ingrese los apellidos</label>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input formControlName= 'correo' type="text" name="correo" id="correo">
+                <label class="active" for="correo">Ingrese el correo </label>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">phone</i>
+                <input formControlName= 'celular' type="text" name="celular" id="celular">
+                <label class="active" for="celular">Ingrese el numero del celular</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="administrador" id="administrador" class="validate" (click)="rol('ADMINISTRADOR')"/>
+                    <span>Administrador</span>
+                </label>
+            </div>
+
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="asesor" id="asesor" class="validate" (click)="rol('ASESOR')"/>
+                    <span>Asesor</span>
+                </label>
+            </div>
+
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="cliente" id="cliente" class="validate" (click)="rol('CLIENTE')"/>
+                    <span>Cliente</span>
+                  </label>
+            </div>
+        </div>
+        <br>
+        <!--Impresion del captcha-->
+
+            
+        <form [formGroup]="fgValidador">
+            <ngx-recaptcha2 #captchaElem
+                [siteKey]= "siteKey"
+                formControlName ='captcha'>
+            </ngx-recaptcha2>
+        </form>
+        <br>
+
+        <!-- Form Button Section  -->
+        <div class="center">
+            <input (click)="EditarPersona()" [disabled]="!fgValidador.valid" type="button" value="editar persona" name="login" 
+            class="btn waves-effect waves-light " 
+            style="width:100%; background-color: #ff4081;">
+        </div>   
+    </div>
+</form>

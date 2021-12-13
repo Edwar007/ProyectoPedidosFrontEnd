@@ -3,7 +3,7 @@
       <nav>
         <div class="nav-wrapper">
           <div class="col s8">
-            <h3 class="brand-logo col s8">REGISTRARSE</h3>
+            <h3 class="brand-logo col s8">Crear Rol Personas</h3>
           </div>
         </div>
       </nav>
@@ -34,18 +34,45 @@
             </div>
         </div>
 
-        <form [formGroup]="fgCreacion">
-          <ngx-recaptcha2 #captchaElem
-              [siteKey]= "siteKey"
-              formControlName ='captcha'> 
-          </ngx-recaptcha2>
-        </form>
+
+        <label ><h6>Rol</h6></label>
+        <div class="row">
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="rol" id="administrador" class="validate" (click)="rol('ADMINISTRADOR')"/>
+                    <span>Administrador</span>
+                </label>
+            </div>
+
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="rol" id="asesor" class="validate" (click)="rol('ASESOR')"/>
+                    <span>Asesor</span>
+                </label>
+            </div>
+
+            <div class="input-field hoverable col s4">
+                <label>
+                    <input type="checkbox" formControlName="rol" id="cliente" class="validate" (click)="rol('CLIENTE')"/>
+                    <span>Cliente</span>
+                  </label>
+            </div>
+        </div>
+        <br>
+        <div class="input-field hoverable col s12">
+            <form [formGroup]="fgCreacion">
+                <ngx-recaptcha2 #captchaElem
+                    [siteKey]= "siteKey"
+                    formControlName ='captcha'>
+                </ngx-recaptcha2>
+            </form><br>
+        </div>
+
         
-      <br>
       
         <input [disabled]="!fgCreacion.valid" (click)="CrearUsuario()" type="button" value="Registrarse" name="login" 
             class="btn waves-effect waves-light " 
             style="width:100%; background-color: #ff4081;">
-
     </form>
 </div>
+

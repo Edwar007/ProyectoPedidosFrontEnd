@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PedidosRoutingModule } from './pedidos-routing.module';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
+import { BuscarPedidosComponent } from './buscar-pedidos/buscar-pedidos.component';
 
 
 @NgModule({
   declarations: [
-    RealizarPedidoComponent
+    RealizarPedidoComponent,
+    BuscarPedidosComponent
   ],
   imports: [
     CommonModule,

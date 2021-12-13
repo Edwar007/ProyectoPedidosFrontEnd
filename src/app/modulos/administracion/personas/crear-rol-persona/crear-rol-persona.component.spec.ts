@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarraNavegacionComponent } from './barra-navegacion.component';
+import { CrearRolPersonaComponent } from './crear-rol-persona.component';
 
-describe('BarraNavegacionComponent', () => {
-  let component: BarraNavegacionComponent;
-  let fixture: ComponentFixture<BarraNavegacionComponent>;
+describe('CrearRolPersonaComponent', () => {
+  let component: CrearRolPersonaComponent;
+  let fixture: ComponentFixture<CrearRolPersonaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BarraNavegacionComponent ]
+      declarations: [ CrearRolPersonaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarraNavegacionComponent);
+    fixture = TestBed.createComponent(CrearRolPersonaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

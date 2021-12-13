@@ -12,6 +12,7 @@ export class SeguridadService {
   constructor(private http:HttpClient) {
     this.VerificarSesionActual();
   }
+
   RefrescarDatosSesion(datos:ModeloIdentificar){
     this.datosUsuarioEnSesion.next(datos);
   }
@@ -42,6 +43,7 @@ export class SeguridadService {
     let datosString = localStorage.getItem("datosSesion");
     return datosString;
   }
+  
   AlmacenarDatos(datos:ModeloIdentificar){
     datos.estadoIdentificado = true;
     let datosString = JSON.stringify(datos);
@@ -62,5 +64,15 @@ export class SeguridadService {
   EliminarSesion(){
     this.RefrescarDatosSesion(new ModeloIdentificar());
     localStorage.removeItem("datosSesion");
+  }
+
+  ObtenerToken(){
+    let datosString = localStorage.getItem("datosSesion");
+    if(datosString){
+      let datos = JSON.parse(datosString);
+      return datos.tk;
+    }else{
+      return "";
+    }
   }
 }

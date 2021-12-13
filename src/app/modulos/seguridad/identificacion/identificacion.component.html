@@ -31,18 +31,28 @@
                 <label for="password">Contraseña</label>
             </div>
         </div>
-            <!-- Form Button Section  -->
 
+        <!--Impresion del captcha-->
+        <form [formGroup]="fgValidador">
+            <ngx-recaptcha2 #captchaElem
+                [siteKey]= "siteKey"
+                formControlName ='captcha'>
+            </ngx-recaptcha2>
+        </form>
+        <br>
+
+        <!-- Form Button Section  -->
         <div class="center">
             <input (click)="IdentificarUsuario()" [disabled]="!fgValidador.valid" type="button" value="ingresar" name="login" 
             class="btn waves-effect waves-light " 
             style="width:100%; background-color: #ff4081;">
         </div>
-            <!-- Form "Register Now" And "Forgot Password" Link Section. -->
-
+        
+        <!-- Form "Register Now" And "Forgot Password" Link Section. -->
         <div class="" style="font-size:14px;"><br>
-            <a routerLink="administracion/crear-persona" class="left">Register Now!</a>
-            <a href="" class="right ">Forgot Password?</a>
-        </div><br>
+            <input class="left" (click)="IrRegistrarse()"  type="button" value="Registrar" >
+            <input  class="right" (click)="RecuperarClave()" type="button" value="Recuperar Clave" >
+        </div>
+        <br>        
     </div>
 </form>

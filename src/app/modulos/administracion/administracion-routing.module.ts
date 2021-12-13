@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuscarPersonaComponent } from './personas/buscar-persona/buscar-persona.component';
 import { CrearPersonaComponent } from './personas/crear-persona/crear-persona.component';
+import { CrearRolPersonaComponent } from './personas/crear-rol-persona/crear-rol-persona.component';
 import { EditarPersonaComponent } from './personas/editar-persona/editar-persona.component';
 import { EliminarPersonaComponent } from './personas/eliminar-persona/eliminar-persona.component';
 import { BuscarProductoComponent } from './productos/buscar-producto/buscar-producto.component';
@@ -19,11 +20,11 @@ const routes: Routes = [
     component:CrearPersonaComponent
   },
   {
-    path: "editar-persona",
+    path: "editar-persona/:id",
     component:EditarPersonaComponent
   },
   {
-    path: "eliminar-persona",
+    path: "eliminar-persona/:id",
     component:EliminarPersonaComponent
   },
   {
@@ -35,12 +36,16 @@ const routes: Routes = [
     component:CrearProductoComponent
   },
   {
-    path: "editar-producto",
+    path: "editar-producto/:id",
     component:EditarProductoComponent
   },
   {
-    path: "eliminar-producto",
+    path: "eliminar-producto/:id",
     component:EliminarProductoComponent
+  },
+  {
+    path: "crear-rol-persona",
+    component:CrearRolPersonaComponent
   }
 
 ];

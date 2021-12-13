@@ -8,15 +8,22 @@ import { SeguridadModule } from '../seguridad.module';
   templateUrl: './cerrar-sesion.component.html',
   styleUrls: ['./cerrar-sesion.component.css']
 })
+
+
+
 export class CerrarSesionComponent implements OnInit {
 
-  constructor(private router:Router, private servicioSeguridad: SeguridadService) { 
+  
+  constructor(private router:Router, private servicioSeguridad: SeguridadService, ) { 
     
   }
 
   ngOnInit(): void {
+    
+    
     this.router.navigate(["/inicio"]);
     this.servicioSeguridad.EliminarSesion();
+
   }
 
 

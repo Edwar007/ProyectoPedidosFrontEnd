@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: "cerrar-sesion",
     component:CerrarSesionComponent
-  }
+  },
+  
 ];
 
 @NgModule({

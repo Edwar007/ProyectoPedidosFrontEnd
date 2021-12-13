@@ -10,6 +10,9 @@ import { CrearProductoComponent } from './productos/crear-producto/crear-product
 import { BuscarProductoComponent } from './productos/buscar-producto/buscar-producto.component';
 import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
 import { EliminarProductoComponent } from './productos/eliminar-producto/eliminar-producto.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { CrearRolPersonaComponent } from './personas/crear-rol-persona/crear-rol-persona.component';
 
 
 @NgModule({
@@ -21,11 +24,15 @@ import { EliminarProductoComponent } from './productos/eliminar-producto/elimina
     CrearProductoComponent,
     BuscarProductoComponent,
     EditarProductoComponent,
-    EliminarProductoComponent
+    EliminarProductoComponent,
+    CrearRolPersonaComponent
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ]
 })
 export class AdministracionModule { }

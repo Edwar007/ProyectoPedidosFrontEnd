@@ -1,1 +1,62 @@
-<p>editar-producto works!</p>
+<form [formGroup]="fgValidador" > <!-- Change The Form Method From Here-->
+    <div class="card-panel z-depth-5">
+
+
+        <input type="hidden" formControlName="id"/>
+
+        <!-- Form Logo Section  -->
+
+        <div class="row margin">
+            <div class="col s12 m12 l12 center">
+                <img src="https://i.imgur.com/ypAbAYt.png"
+                 alt="" class="responsive-img circle" style="width:100px;">
+                <p>Edicion de Productos</p>
+            </div>
+        </div>
+
+        <!-- Form Username Input Section -->
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">create</i>
+                <input formControlName= 'nombre' type="text" name="nombre" id="nombre">
+                <label class="active" for="nombre">Ingrese el nombre del prodcuto</label>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">attach_money</i>
+                <input formControlName= 'precio' type="text" name="precio" id="precio">
+                <label class="active" for="precio">Ingrese el precio del prodcuto</label>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <i class="material-icons prefix">add_a_photo</i>
+                <input formControlName= 'imagen' type="text" name="imagen" id="imagen">
+                <label class="active" for="imagen">Ingrese la imagen del prodcuto</label>
+            </div>
+        </div>
+
+        <!--Impresion del captcha-->
+
+             
+        <form [formGroup]="fgValidador">
+            <ngx-recaptcha2 #captchaElem
+                [siteKey]= "siteKey"
+                formControlName ='captcha'>
+            </ngx-recaptcha2>
+        </form>
+        <br>
+        
+
+        <!-- Form Button Section  -->
+        <div class="center">
+            <input (click)="EditarProducto()" [disabled]="!fgValidador.valid" type="button" value="editar producto" name="login" 
+            class="btn waves-effect waves-light " 
+            style="width:100%; background-color: #ff4081;">
+        </div>   
+    </div>
+</form>

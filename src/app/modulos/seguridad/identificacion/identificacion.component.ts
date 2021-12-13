@@ -10,14 +10,18 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
   styleUrls: ['./identificacion.component.css']
 })
 export class IdentificacionComponent implements OnInit {
+siteKey:string="";
 
   fgValidador: FormGroup = this.fb.group({
     'usuario':['',[Validators.required, Validators.email]],
     'clave':['',[Validators.required]],
+    'captcha':['',[Validators.required]]
   })
   constructor(private fb: FormBuilder, 
     private servicioSeguridad: SeguridadService,
-    private router: Router) { }
+    private router: Router) {
+      this.siteKey = "6LcJtYcdAAAAAO9-73R7Uw3hEGQomH-o2m0hCk-S"
+     }
 
   ngOnInit(): void {
   }
@@ -34,5 +38,14 @@ export class IdentificacionComponent implements OnInit {
       alert("El usuario o la contraseña no existe!!")
     })
   }
+
+  IrRegistrarse(){
+    this.router.navigate(["/administracion/crear-persona"])
+  }
+
+  RecuperarClave(){
+    this.router.navigate(["/seguridad/recuperar-clave"])
+  }
+
 
 }
